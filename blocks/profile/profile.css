@@ -4,3 +4,9 @@
 @import url(./__info/profile__info.css);
 @import url(./__subtitle/profile__subtitle.css);
 @import url(./__title/profile__title.css);
+
+.profile {
+  margin: 40px auto 0;
+  max-width: 882px;
+  display: flex;
+}

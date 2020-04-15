@@ -1,0 +1,9 @@
+.profile__info {
+  margin: auto 30px;
+  display: grid;
+  grid-template-areas:
+  "title button"
+  "subtitle .";
+  align-items: end;
+
+}
