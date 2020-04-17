@@ -1,3 +1,13 @@
 @import url(./_location/element__image_location_kar.css);
 @import url(./_location/element__image_location_dom.css);
 @import url(./_location/element__image_location_el.css);
+
+.element__image {
+  margin: 0;
+  width: 282px;
+  height: 282px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 0 0;
+}
