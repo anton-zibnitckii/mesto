@@ -3,15 +3,20 @@
 @import url(./__save-button/popup__save-button.css);
 @import url(./__title/popup__title.css);
 @import url(./__form/popup__form.css);
-@import url(./__name/popup__name.css);
-@import url(./__feature/popup__feature.css);
+@import url(./__input/popup__input.css);
+
 
 
 .popup {
+  display: none;
   width: 100%;
   min-height: 100%;
   background-color: rgba(0, 0, 0, .5);
   overflow:hidden;
   position: fixed;
   top:0px;
+}
+
+.popup_open {
+  display: flex;
 }

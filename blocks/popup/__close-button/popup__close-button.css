@@ -12,5 +12,15 @@
   color: #fff;
   border: none;
   margin: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: opacity .3s ease;
+  -o-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+  z-index: 1;
+}
+
+.popup__close-button:hover {
+  opacity: .6;
 }
 

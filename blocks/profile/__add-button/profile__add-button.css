@@ -13,9 +13,10 @@
   -webkit-transition: opacity .3s ease;
   -o-transition: opacity .3s ease;
   transition: opacity .3s ease;
+  outline: none;
 }
 
 .profile__add-button:hover {
   opacity: .6;
 }
-}
+
