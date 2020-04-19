@@ -11,6 +11,6 @@
 * JS
 
 ## Cсылка на проект
-* [GHPages] (https://anton-zibnitckii.github.io/mesto/index.html)
+* https://anton-zibnitckii.github.io/mesto/index.html
 
 
