@@ -8,8 +8,10 @@
   border-bottom: 1px solid #545454;
 }
 
-@media all and (max-width: 425px) {
+
+@media all and (max-width: 882px) {
   .header {
-    margin: 28px 0 0;
+    margin: 28px auto 0;
+    height: 56px;
   }
 }

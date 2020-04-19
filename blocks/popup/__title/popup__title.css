@@ -5,3 +5,9 @@
   font-size: 24px;
   color: #000;
 }
+
+@media all and (max-width: 882px) {
+  .popup__title {
+  margin: 24px 24px 0;
+  }
+}

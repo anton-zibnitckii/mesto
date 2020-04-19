@@ -10,3 +10,9 @@
   max-width: 882px;
   display: flex;
 }
+
+@media all and (max-width: 882px) {
+  .profile {
+    flex-direction: column;
+  }
+}

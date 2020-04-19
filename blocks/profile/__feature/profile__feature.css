@@ -4,3 +4,11 @@
   font-weight: 400;
   font-size: 18px;
 }
+
+@media all and (max-width: 882px) {
+  .profile__feature {
+    font-size: 14px;
+    margin: 14px auto 0;
+    order: 3;
+  }
+}

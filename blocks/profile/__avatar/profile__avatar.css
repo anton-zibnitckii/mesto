@@ -8,3 +8,9 @@
   background-position: center;
   border-radius: 50%;
 }
+
+@media all and (max-width: 882px) {
+  .profile__avatar {
+    margin: 0 auto 14px;
+  }
+}
