@@ -3,12 +3,14 @@
   margin: 16px 0 0 ;
   font-weight: 400;
   font-size: 18px;
+  max-width: 500px;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .profile__feature {
     font-size: 14px;
     margin: 14px auto 0;
     order: 3;
+    text-align: center;
   }
 }

@@ -9,7 +9,7 @@ let namePopup = formPopup.querySelector('.popup__input_name');
 let featurePopup = formPopup.querySelector('.popup__input_feature');
 
 function editForm() {
-  popup.classList.add('popup_open');
+  popup.classList.toggle('popup_open');
   namePopup.value = nameProfile.textContent;
   featurePopup.value = featureProfile.textContent;
 }
@@ -20,11 +20,7 @@ function formSubmitHandler (evt) {
   featureProfile.textContent = featurePopup.value;
 }
 
-function closePopup(){
-  popup.classList.toggle('popup_open');
-}
-
 editButton.addEventListener('click', editForm);
 formPopup.addEventListener('submit', formSubmitHandler);
-formPopup.addEventListener('submit', closePopup);
-closeButton.addEventListener('click', closePopup);
+formPopup.addEventListener('submit', editForm);
+closeButton.addEventListener('click', editForm);

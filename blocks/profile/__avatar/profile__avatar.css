@@ -7,9 +7,10 @@
   background-size: contain;
   background-position: center;
   border-radius: 50%;
+  align-self: center;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .profile__avatar {
     margin: 0 auto 14px;
   }

@@ -7,7 +7,7 @@
   grid-row-gap: 20px;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .elements {
     max-width: 582px;
     grid-template-columns: repeat(2, 1fr);
@@ -16,7 +16,7 @@
   }
 }
 
-@media all and (max-width: 582px) {
+@media all and (max-width: 600px) {
   .elements {
     max-width: 282px;
     grid-template-columns: 1fr;

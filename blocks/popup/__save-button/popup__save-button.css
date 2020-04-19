@@ -16,8 +16,14 @@
   background-color: rgba(0, 0, 0, .8);
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .popup__save-button {
   width: 272px;
+  }
+}
+
+@media all and (max-width: 374px) {
+  .popup__save-button {
+  width: 234px;
   }
 }

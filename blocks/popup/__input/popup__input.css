@@ -14,8 +14,14 @@
   margin: 0;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .popup__input {
     width: 272px;
+  }
+}
+
+@media all and (max-width: 374px) {
+  .popup__input {
+    width: 234px;
   }
 }

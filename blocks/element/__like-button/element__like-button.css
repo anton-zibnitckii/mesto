@@ -9,4 +9,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: opacity .3s ease;
+  -o-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+}
+
+.element__like-button:hover {
+  opacity: .6;
 }

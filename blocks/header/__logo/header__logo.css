@@ -14,7 +14,7 @@
   opacity: .8;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .header__logo {
     margin:  0 19px;
     width: 104px;

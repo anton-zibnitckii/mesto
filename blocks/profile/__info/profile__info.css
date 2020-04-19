@@ -5,9 +5,10 @@
   "title button"
   "subtitle .";
   align-items: end;
+  max-width: 600px;
 }
 
-@media all and (max-width: 882px) {
+@media all and (max-width: 900px) {
   .profile__info {
     max-width: 282px;
     margin: 0 auto;
