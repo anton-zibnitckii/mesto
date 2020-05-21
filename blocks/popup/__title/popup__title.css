@@ -8,6 +8,16 @@
 
 @media all and (max-width: 900px) {
   .popup__title {
-  margin: 24px 24px 0;
+  margin: 30px 20px 0;
   }
+}
+
+@media all and (max-width: 374px) {
+  .popup__title {
+  font-size: 18px;
+  }
+}
+
+.popup__title_hide {
+  display: none;
 }

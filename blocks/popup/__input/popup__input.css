@@ -22,6 +22,8 @@
 
 @media all and (max-width: 374px) {
   .popup__input {
-    width: 234px;
+    margin-top: 20px;
+    width: 200px;
+    font-size: 12px;
   }
 }

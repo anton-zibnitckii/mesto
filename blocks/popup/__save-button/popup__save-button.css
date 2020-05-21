@@ -24,6 +24,12 @@
 
 @media all and (max-width: 374px) {
   .popup__save-button {
-  width: 234px;
+  margin-top: 36px;
+  width: 200px;
+  height: 40px;
   }
+}
+
+.popup__save-button_hide {
+  display: none;
 }

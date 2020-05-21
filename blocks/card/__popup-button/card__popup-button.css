@@ -1,0 +1,7 @@
+.card__popup-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}

@@ -25,8 +25,9 @@
 
 @media all and (max-width: 582px) {
   .popup__close-button {
-    top: 24px;
-    right: 24px;
-    background-image: url(../../../image/exit__black.svg);
+    top: -25px;
+    right: -25px;
+    width: 30px;
+    height: 30px;
   }
 }

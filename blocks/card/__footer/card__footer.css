@@ -1,5 +1,5 @@
-.element__footer {
-  margin: 0;
+.card__footer {
+  margin: -5px 0 0 0;
   max-width: 282px;
   height: 80px;
   background-color: #fff;

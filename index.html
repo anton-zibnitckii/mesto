@@ -20,74 +20,37 @@
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__feature">Исследователь океана</p>
-        <!-- в <form> не оборачиваю, как как на сервер ничего не отправлем -->
         <button type="button" class="profile__edit-button"></button>
       </div>
-      <!-- в <form> не оборачиваю, как как на сервер ничего не отправлем -->
       <button type="button" class="profile__add-button"></button>
     </section>
 
-    <section class="elements">
-      <div class="element">
-        <div class="element__image element__image_location_kar"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Карачаевск</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </div>
+    <section class="cards">
 
-      <div class="element">
-        <div class="element__image element__image_location_el"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" class="element__like-button"></button>
+      <template id="card">
+      <div class="card">
+        <button type="button" class="card__delete-button"></button>
+        <button type="button" class="card__popup-button">
+          <img class="card__image">
+        </button>
+        <div class="card__footer">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-button"></button>
         </div>
       </div>
-
-      <div class="element">
-        <div class="element__image element__image_location_dom"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </div>
-
-      <div class="element">
-        <div class="element__image element__image_location_el"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </div>
-
-      <div class="element">
-        <div class="element__image element__image_location_dom"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </div>
-
-      <div class="element">
-        <div class="element__image element__image_location_kar"></div>
-        <div class="element__footer">
-          <h2 class="element__title">Карачаевск</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </div>
+      </template>
 
     </section>
-    <!-- у нас в задании минимально указано 300px, а в чек-листе 320px и все предыдущие работы тоже были на 320px,
-    но я понял что в профайле не ограничил max-width текстовые блоки. Одна проблема,
-    при очень длинном имени кнопка переносится к function и прилепляется не могу никак это решить, дело расставлять через медиазапросы,
-    а тут так не работает, потому что само поле текстовое выдавливает-->
+
     <section class="popup">
       <div class="popup__container">
         <button type="button" class="popup__close-button"></button>
-        <h3 class="popup__title">Редактировать профиль</h3>
+        <img class="popup__image">
+        <p class="popup__caption"></p>
+        <h3 class="popup__title"></h3>
         <form action="URL" class="popup__form">
-          <input type="text" class="popup__input popup__input_name" name="name">
-          <input type="text" class="popup__input popup__input_feature" name="feature">
+          <input id="up" type="text" class="popup__input">
+          <input id="down" type="text" class="popup__input">
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </div>

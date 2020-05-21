@@ -12,6 +12,11 @@
 
 @media all and (max-width: 374px) {
   .popup__form {
-  width: 234px;
+  margin: 20px;
+  width: 200px;
   }
+}
+
+.popup__form_hide {
+  display: none;
 }
