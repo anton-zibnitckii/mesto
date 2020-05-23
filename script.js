@@ -38,11 +38,11 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-let nameProfile = document.querySelector('.profile__name');
-let featureProfile = document.querySelector('.profile__feature');
+const nameProfile = document.querySelector('.profile__name');
+const featureProfile = document.querySelector('.profile__feature');
 
-function openClosePopup(popupElement, popupMod) {
-  popupElement.classList.toggle(popupMod);
+function openClosePopup(popupElement) {
+  popupElement.classList.toggle('popup_open');
 }
 
 function setTitle (text) {
@@ -78,7 +78,7 @@ function saveDataInputEditForm () {
 }
 
 function activeLike (evt) {
-  evt.target.classList.toggle('element__like-button_event');
+  evt.target.classList.toggle('card__like-button_event');
 }
 
 function deleteCards (evt) {
@@ -94,7 +94,6 @@ function addPopupElement (elem, mod) {
 }
 
 function openPopupImage (evt) {
-  openClosePopup(popup, 'popup_open');
   addPopupElement(imagePopup, 'popup__image_hide');
   addPopupElement(captionPopup, 'popup__caption_hide');
   removePopupElement(containerPopup, 'popup__container_image');
@@ -105,6 +104,7 @@ function openPopupImage (evt) {
   imagePopup.src = item.src;
   imagePopup.alt = item.dataset.name;
   captionPopup.textContent = item.dataset.name
+  openClosePopup(popup);
 }
 
 
@@ -142,7 +142,6 @@ initialCards.forEach(function (item) {
 })
 
 editButton.addEventListener('click', function () {
-  openClosePopup(popup, 'popup_open');
   removePopupElement(imagePopup, 'popup__image_hide');
   removePopupElement(captionPopup, 'popup__caption_hide');
   addPopupElement(containerPopup, 'popup__container_image');
@@ -153,10 +152,10 @@ editButton.addEventListener('click', function () {
   setUpInputAtr('name', 'name');
   setDownInputAtr('name', 'feature');
   setEditPopupDataInput();
+  openClosePopup(popup);
 })
 
 addButton.addEventListener('click', function () {
-  openClosePopup(popup, 'popup_open');
   removePopupElement(imagePopup, 'popup__image_hide');
   removePopupElement(captionPopup, 'popup__caption_hide');
   addPopupElement(containerPopup, 'popup__container_image');
@@ -168,13 +167,13 @@ addButton.addEventListener('click', function () {
   setDownInputAtr('name', 'url');
   setUpInputAtr('placeholder', 'Название');
   setDownInputAtr('placeholder', 'Ссылка на картинку');
+  openClosePopup(popup);
 })
 
 closeButton.addEventListener('click', function() {
-  openClosePopup(popup, 'popup_open');
   clearPopupInputAdd('placeholder');
   clearPopupInputEdit('');
-
+  openClosePopup(popup);
 })
 
 formPopup.addEventListener('submit', formSubmitHandler);
