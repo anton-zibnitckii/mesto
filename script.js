@@ -133,7 +133,7 @@ function formSubmitHandler (evt) {
   }
   clearPopupInputAdd('placeholder');
   clearPopupInputEdit('');
-  openClosePopup(popup, 'popup_open');
+  openClosePopup(popup);
 }
 
 
