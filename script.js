@@ -2,16 +2,23 @@ const sectionCards = document.querySelector('.cards');
 const cardTemplate = document.querySelector('#card').content;
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-const closeButton = document.querySelector('.popup__close-button');
+const closeButtonProfile = document.querySelector('#closeButtonProfile');
 const popup = document.querySelector('.popup');
-const titlePopup = document.querySelector('.popup__title');
-const formPopup = document.querySelector('.popup__form');
-const inputUp = document.querySelector('#up');
-const inputDown = document.querySelector('#down');
-const saveButton = formPopup.querySelector('.popup__save-button');
+const popupProfile = document.querySelector('#popupProfile');
+const popupCards = document.querySelector('#popupCards');
+const popupBig = document.querySelector('#popupBig');
+const formProfile = document.querySelector('#formProfile');
+const formCards = document.querySelector('#formCards');
+const inputName = document.querySelector('#name-input');
+const inputFeature = document.querySelector('#feature-input');
+const inputPlace = document.querySelector('#place-input');
+const inputLink = document.querySelector('#link-input');
+const closeButtonCards = document.querySelector('#closeButtonCards');
+const closeButtonBig = document.querySelector('#closeButtonBig');
+const saveButton = document.querySelector('.popup__save-button');
 const containerPopup = document.querySelector('.popup__container')
-const imagePopup = document.querySelector('.popup__image');
-const captionPopup = document.querySelector('.popup__caption');
+const imagePopup = document.querySelector('.popup-view__img');
+const captionPopup = document.querySelector('.popup-view__caption');
 const initialCards = [
   {
       name: 'Архыз',
@@ -45,36 +52,14 @@ function openClosePopup(popupElement) {
   popupElement.classList.toggle('popup_open');
 }
 
-function setTitle (text) {
-  titlePopup.textContent = text;
+function setProfilePopupDataInput () {
+  inputName.value = nameProfile.textContent;
+  inputFeature.value = featureProfile.textContent;
 }
 
-function setUpInputAtr (name, item) {
-  inputUp.setAttribute(name, item);
-}
-
-function setDownInputAtr (name, item) {
-  inputDown.setAttribute(name, item);
-}
-
-function setEditPopupDataInput () {
-  inputUp.value = nameProfile.textContent;
-  inputDown.value = featureProfile.textContent;
-}
-
-function clearPopupInputEdit (val) {
-  inputUp.value = val;
-  inputDown.value = val;
-}
-
-function clearPopupInputAdd (atr) {
-  inputUp.removeAttribute(atr);
-  inputDown.removeAttribute(atr);
-}
-
-function saveDataInputEditForm () {
-  nameProfile.textContent = inputUp.value;
-  featureProfile.textContent = inputDown.value;
+function saveDataInputProfileForm () {
+  nameProfile.textContent = inputName.value;
+  featureProfile.textContent = inputFeature.value;
 }
 
 function activeLike (evt) {
@@ -85,28 +70,13 @@ function deleteCards (evt) {
   evt.target.closest('.card').remove();
 }
 
-function removePopupElement (elem, mod) {
-  elem.classList.add(mod);
-}
-
-function addPopupElement (elem, mod) {
-  elem.classList.remove(mod);
-}
-
 function openPopupImage (evt) {
-  addPopupElement(imagePopup, 'popup__image_hide');
-  addPopupElement(captionPopup, 'popup__caption_hide');
-  removePopupElement(containerPopup, 'popup__container_image');
-  removePopupElement(formPopup, 'popup__form_hide');
-  removePopupElement(saveButton, 'popup__save-button_hide');
-  removePopupElement(titlePopup, 'popup__title_hide');
   const item = evt.target;
   imagePopup.src = item.src;
   imagePopup.alt = item.dataset.name;
   captionPopup.textContent = item.dataset.name
-  openClosePopup(popup);
+  openClosePopup(popupBig);
 }
-
 
 function loadCards (name, url) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -121,61 +91,49 @@ function loadCards (name, url) {
 }
 
 function addCard () {
-  sectionCards.prepend(loadCards(inputUp.value, inputDown.value));
+  sectionCards.prepend(loadCards(inputPlace.value, inputLink.value));
 }
 
-function formSubmitHandler (evt) {
+function formSubmitHandlerProfile (evt) {
   evt.preventDefault();
-  if (titlePopup.textContent === 'Редактировать профиль') {
-    saveDataInputEditForm();
-  } else if (titlePopup.textContent === 'Новое место') {
-    addCard();
-  }
-  clearPopupInputAdd('placeholder');
-  clearPopupInputEdit('');
-  openClosePopup(popup);
+  saveDataInputProfileForm()
+  openClosePopup(popupProfile);
 }
 
+function formSubmitHandlerCards (evt) {
+  evt.preventDefault();
+  addCard()
+  openClosePopup(popupCards);
+}
 
 initialCards.forEach(function (item) {
   sectionCards.append(loadCards(item.name, item.link));
 })
 
 editButton.addEventListener('click', function () {
-  removePopupElement(imagePopup, 'popup__image_hide');
-  removePopupElement(captionPopup, 'popup__caption_hide');
-  addPopupElement(containerPopup, 'popup__container_image');
-  addPopupElement(formPopup, 'popup__form_hide');
-  addPopupElement(saveButton, 'popup__save-button_hide');
-  addPopupElement(titlePopup, 'popup__title_hide');
-  setTitle('Редактировать профиль');
-  setUpInputAtr('name', 'name');
-  setDownInputAtr('name', 'feature');
-  setEditPopupDataInput();
-  openClosePopup(popup);
+  setProfilePopupDataInput();
+  openClosePopup(popupProfile);
 })
 
 addButton.addEventListener('click', function () {
-  removePopupElement(imagePopup, 'popup__image_hide');
-  removePopupElement(captionPopup, 'popup__caption_hide');
-  addPopupElement(containerPopup, 'popup__container_image');
-  addPopupElement(formPopup, 'popup__form_hide');
-  addPopupElement(saveButton, 'popup__save-button_hide');
-  addPopupElement(titlePopup, 'popup__title_hide');
-  setTitle('Новое место');
-  setUpInputAtr('name', 'name');
-  setDownInputAtr('name', 'url');
-  setUpInputAtr('placeholder', 'Название');
-  setDownInputAtr('placeholder', 'Ссылка на картинку');
-  openClosePopup(popup);
+  openClosePopup(popupCards);
 })
 
-closeButton.addEventListener('click', function() {
-  clearPopupInputAdd('placeholder');
-  clearPopupInputEdit('');
-  openClosePopup(popup);
+closeButtonProfile.addEventListener('click', function() {
+  openClosePopup(popupProfile);
 })
 
-formPopup.addEventListener('submit', formSubmitHandler);
+closeButtonCards.addEventListener('click', function() {
+  openClosePopup(popupCards);
+})
+
+closeButtonBig.addEventListener('click', function() {
+  openClosePopup(popupBig);
+})
+
+formProfile.addEventListener('submit', formSubmitHandlerProfile);
+
+formCards.addEventListener('submit', formSubmitHandlerCards);
+
 
 
