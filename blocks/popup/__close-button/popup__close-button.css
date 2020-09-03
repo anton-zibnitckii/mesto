@@ -17,6 +17,7 @@
   -o-transition: opacity .3s ease;
   transition: opacity .3s ease;
   z-index: 1;
+  pointer-events: auto;
 }
 
 .popup__close-button:hover {

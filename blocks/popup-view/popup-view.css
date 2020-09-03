@@ -1,0 +1,8 @@
+@import url(./popup-view__item/popup-view__item.css);
+@import url(./popup-view__img/popup-view__img.css);
+@import url(./popup-view__caption/popup-view__caption.css);
+
+.popup-view {
+  margin: auto;
+  position: relative;
+}

@@ -27,32 +27,39 @@
 
     <section class="cards">
 
-      <template id="card">
-      <div class="card">
-        <button type="button" class="card__delete-button"></button>
-        <button type="button" class="card__popup-button">
-          <img class="card__image">
-        </button>
-        <div class="card__footer">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
-        </div>
-      </div>
-      </template>
-
     </section>
 
-    <section class="popup">
+    <section class="popup" id="popupProfile">
       <div class="popup__container">
-        <button type="button" class="popup__close-button"></button>
-        <img class="popup__image">
-        <p class="popup__caption"></p>
-        <h3 class="popup__title"></h3>
-        <form action="URL" class="popup__form">
-          <input id="up" type="text" class="popup__input">
-          <input id="down" type="text" class="popup__input">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" id="formProfile">
+          <button type="button" class="popup__close-button" id="closeButtonProfile"></button>
+          <input id="name-input" type="text" class="popup__input popup__input_type_name" placeholder="Имя" required>
+          <input id="feature-input" type="text" class="popup__input popup__input_type_feature" placeholder="О себе" required>
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
+      </div>
+    </section>
+
+    <section class="popup" id="popupCards">
+      <div class="popup__container">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" id="formCards">
+          <button type="button" class="popup__close-button" id="closeButtonCards"></button>
+          <input id="place-input" type="text" class="popup__input popup__input_type_place" placeholder="Название" required>
+          <input id="link-input" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
+          <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup" id="popupBig">
+      <div class="popup-view">
+        <button type="button" class="popup__close-button" id="closeButtonBig"></button>
+        <figure class="popup-view__item">
+          <img class="popup-view__img">
+          <figcaption class="popup-view__caption"></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -61,6 +68,19 @@
   <footer class="footer">
     <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
   </footer>
+
+  <template id="card">
+    <div class="card">
+      <button type="button" class="card__delete-button"></button>
+      <button type="button" class="card__popup-button">
+        <img class="card__image">
+      </button>
+      <div class="card__footer">
+        <h2 class="card__title"></h2>
+        <button type="button" class="card__like-button"></button>
+      </div>
+    </div>
+    </template>
 
   <script src="script.js"></script>
 
