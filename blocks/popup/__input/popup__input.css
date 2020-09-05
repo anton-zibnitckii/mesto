@@ -15,7 +15,7 @@
 }
 
 .popup__input_type_error {
-  border-bottom-color: 1px solid #FF0000;
+  border-bottom: 1px solid #FF0000;
 }
 
 @media all and (max-width: 900px) {
@@ -26,7 +26,7 @@
 
 @media all and (max-width: 374px) {
   .popup__input {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 200px;
     font-size: 12px;
   }

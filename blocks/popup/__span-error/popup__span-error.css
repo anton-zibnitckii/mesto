@@ -1,0 +1,21 @@
+.popup__span-error {
+    color: red;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    height: 14px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 6px;
+    opacity: 0;
+}
+
+.popup__span-error_type_active {
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .form__span-error {
+    width: 190px;
+  }
+}

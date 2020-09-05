@@ -29,26 +29,34 @@
 
     </section>
 
-    <section class="popup" id="popupProfile">
+    <section class="popup" id="popupProfile" novalidate>
       <div class="popup__container">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" id="formProfile">
+        <form class="popup__form" id="formProfile" >
           <button type="button" class="popup__close-button" id="closeButtonProfile"></button>
-          <input id="name-input" type="text" class="popup__input popup__input_type_name" placeholder="Имя" required>
-          <input id="feature-input" type="text" class="popup__input popup__input_type_feature" placeholder="О себе" required>
+          <fieldset class="popup__fieldset">
+          <input id="name-input" type="text" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="popup__span-error" id="name-input-error"></span>
+          <input id="feature-input" type="text" class="popup__input popup__input_type_feature" placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="popup__span-error" id="feature-input-error"></span>
           <button class="popup__save-button" type="submit">Сохранить</button>
+          </fieldset>
         </form>
       </div>
     </section>
 
-    <section class="popup" id="popupCards">
+    <section class="popup" id="popupCards" novalidate>
       <div class="popup__container">
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" id="formCards">
+        <form class="popup__form" id="formCards" >
           <button type="button" class="popup__close-button" id="closeButtonCards"></button>
-          <input id="place-input" type="text" class="popup__input popup__input_type_place" placeholder="Название" required>
+          <fieldset class="popup__fieldset">
+          <input id="place-input" type="text" class="popup__input popup__input_type_place" placeholder="Название" minlength="1" maxlength="30" required>
+          <span class="popup__span-error" id="place-input-error"></span>
           <input id="link-input" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
+          <span class="popup__span-error" id="link-input-error"></span>
           <button class="popup__save-button" type="submit">Сохранить</button>
+          </fieldset>
         </form>
       </div>
     </section>
@@ -82,7 +90,8 @@
     </div>
     </template>
 
-  <script src="script.js"></script>
+  <script src="index.js"></script>
+  <script src="validate.js"></script>
 
 </body>
 </html>

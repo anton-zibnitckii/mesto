@@ -48,8 +48,31 @@ const initialCards = [
 const nameProfile = document.querySelector('.profile__name');
 const featureProfile = document.querySelector('.profile__feature');
 
-function openClosePopup(popupElement) {
-  popupElement.classList.toggle('popup_open');
+function openPopup(popupElement) {
+  popupElement.classList.add('popup_open');
+  document.addEventListener('keydown', handleEscClose);
+  popup.addEventListener('click', handleOverlayClick);
+}
+
+function closePopup(popupElement) {
+  popupElement.classList.remove('popup_open');
+  document.removeEventListener('keydown', handleEscClose);
+  popup.removeEventListener('click', handleOverlayClick);
+
+}
+
+function handleEscClose(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupCards);
+    closePopup(popupProfile);
+    closePopup(popupBig);
+  }
+}
+
+function handleOverlayClick() {
+  closePopup(popupCards);
+  closePopup(popupProfile);
+  closePopup(popupBig);
 }
 
 function setProfilePopupDataInput () {
@@ -74,8 +97,8 @@ function openPopupImage (evt) {
   const item = evt.target;
   imagePopup.src = item.src;
   imagePopup.alt = item.dataset.name;
-  captionPopup.textContent = item.dataset.name
-  openClosePopup(popupBig);
+  captionPopup.textContent = item.dataset.name;
+  openPopup(popupBig);
 }
 
 function loadCards (name, url) {
@@ -92,19 +115,21 @@ function loadCards (name, url) {
 
 function addCard () {
   sectionCards.prepend(loadCards(inputPlace.value, inputLink.value));
+
 }
 
 function formSubmitHandlerProfile (evt) {
   evt.preventDefault();
   saveDataInputProfileForm()
-  openClosePopup(popupProfile);
+  closePopup(popupProfile);
 }
 
 function formSubmitHandlerCards (evt) {
   evt.preventDefault();
   addCard()
-  openClosePopup(popupCards);
+  closePopup(popupCards);
 }
+
 
 initialCards.forEach(function (item) {
   sectionCards.append(loadCards(item.name, item.link));
@@ -112,28 +137,25 @@ initialCards.forEach(function (item) {
 
 editButton.addEventListener('click', function () {
   setProfilePopupDataInput();
-  openClosePopup(popupProfile);
+  openPopup(popupProfile);
 })
 
 addButton.addEventListener('click', function () {
-  openClosePopup(popupCards);
+  openPopup(popupCards);
 })
 
 closeButtonProfile.addEventListener('click', function() {
-  openClosePopup(popupProfile);
+  closePopup(popupProfile);
 })
 
 closeButtonCards.addEventListener('click', function() {
-  openClosePopup(popupCards);
+  closePopup(popupCards);
 })
 
 closeButtonBig.addEventListener('click', function() {
-  openClosePopup(popupBig);
+  closePopup(popupBig);
 })
 
 formProfile.addEventListener('submit', formSubmitHandlerProfile);
 
 formCards.addEventListener('submit', formSubmitHandlerCards);
-
-
-
