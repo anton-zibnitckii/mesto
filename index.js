@@ -47,18 +47,38 @@ const initialCards = [
 ];
 const nameProfile = document.querySelector('.profile__name');
 const featureProfile = document.querySelector('.profile__feature');
+const formObj = {
+  formSelector: '.popup__form',
+  fieldsetSelector: '.popup__fieldset',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_type_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__span-error_type_active',
+}
+
+const validationForOpen = (formElement, formObj) => {
+  const inputList = Array.from(formElement.querySelectorAll(formObj.inputSelector));
+  const buttonElement = formElement.querySelector(formObj.submitButtonSelector);
+  toggleSubmitButtonState(inputList, buttonElement, formObj);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement,inputElement, formObj);
+    toggleSubmitButtonState(inputList, buttonElement, formObj);
+  });
+}
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_open');
   document.addEventListener('keydown', handleEscClose);
   document.addEventListener('click', handleOverlayClick);
+  validationForOpen(formProfile, formObj);
 }
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_open');
   document.removeEventListener('keydown', handleEscClose);
   document.removeEventListener('click', handleOverlayClick);
-
+  validationForOpen(formCards, formObj);
 }
 
 function handleEscClose(evt) {
