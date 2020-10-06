@@ -1,5 +1,6 @@
+import { Card } from './Card.js';
 const sectionCards = document.querySelector('.cards');
-const cardTemplate = document.querySelector('#card').content;
+/* const cardTemplate = document.querySelector('#card-template').content; */
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const closeButtonProfile = document.querySelector('#closeButtonProfile');
@@ -17,8 +18,8 @@ const closeButtonCards = document.querySelector('#closeButtonCards');
 const closeButtonBig = document.querySelector('#closeButtonBig');
 const saveButton = document.querySelector('.popup__save-button');
 const containerPopup = document.querySelector('.popup__container')
-const imagePopup = document.querySelector('.popup-view__img');
-const captionPopup = document.querySelector('.popup-view__caption');
+export const imagePopup = document.querySelector('.popup-view__img');
+export const captionPopup = document.querySelector('.popup-view__caption');
 const initialCards = [
   {
       name: 'Архыз',
@@ -103,7 +104,7 @@ function saveDataInputProfileForm () {
   nameProfile.textContent = inputName.value;
   featureProfile.textContent = inputFeature.value;
 }
-
+/*
 function activeLike (evt) {
   evt.target.classList.toggle('card__like-button_event');
 }
@@ -111,7 +112,8 @@ function activeLike (evt) {
 function deleteCards (evt) {
   evt.target.closest('.card').remove();
 }
-
+*/
+/*
 function openPopupImage (evt) {
   const item = evt.target;
   imagePopup.src = item.src;
@@ -119,7 +121,9 @@ function openPopupImage (evt) {
   captionPopup.textContent = item.dataset.name;
   openPopup(popupBig);
 }
+*/
 
+/*
 function loadCards (name, url) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -131,9 +135,12 @@ function loadCards (name, url) {
   cardElement.querySelector('.card__popup-button').addEventListener('click', openPopupImage);
   return cardElement;
 }
+*/
 
 function addCard () {
-  sectionCards.prepend(loadCards(inputPlace.value, inputLink.value));
+  const card = new Card(inputPlace.value, inputLink.value);
+  const cardElement = card.generateCard();
+  sectionCards.prepend(cardElement);
 
 }
 
@@ -152,8 +159,10 @@ function formSubmitHandlerCards (evt) {
 }
 
 
-initialCards.forEach(function (item) {
-  sectionCards.append(loadCards(item.name, item.link));
+initialCards.forEach((item) => {
+  const card = new Card(item.name, item.link)
+  const cardElement = card.generateCard();
+  sectionCards.append(cardElement);
 })
 
 editButton.addEventListener('click', function () {
