@@ -52,15 +52,6 @@ export class FormValidator {
     }
   }
 
-  _openCheckValidity() {
-    const formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    const formSubmitButton = this._formElement.querySelector(this._submitButtonSelector);
-    formInputs.forEach((inputElement) => {
-      this._checkInputValidity(inputElement);
-    });
-    this._toggleSubmitButtonState(formInputs, formSubmitButton);
-  };
-
   _setEventListeners() {
     const formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     const formSubmitButton = this._formElement.querySelector(this._submitButtonSelector);
