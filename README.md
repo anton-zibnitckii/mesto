@@ -9,6 +9,9 @@
 * HTML
 * CSS
 * JS
+* JS validation
+* JS class
+* JS import/export
 
 ## Cсылка на проект
 * https://anton-zibnitckii.github.io/mesto/index.html
