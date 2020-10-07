@@ -17,8 +17,8 @@ const inputPlace = document.querySelector('#place-input');
 const inputLink = document.querySelector('#link-input');
 const closeButtonCards = document.querySelector('#closeButtonCards');
 const closeButtonBig = document.querySelector('#closeButtonBig');
+const containerPopup = document.querySelector('.popup__container');
 const saveButton = document.querySelector('.popup__save-button');
-const containerPopup = document.querySelector('.popup__container')
 const initialCards = [
   {
       name: 'Архыз',
@@ -100,30 +100,47 @@ function addCard () {
   sectionCards.prepend(cardElement);
 }
 
-
-
-function formSubmitHandlerProfile (evt) {
+function handleProfileFormSubmit (evt) {
   evt.preventDefault();
   saveDataInputProfileForm()
-  formProfile.reset();
   closePopup(popupProfile);
 }
 
-function formSubmitHandlerCards (evt) {
+function handleCardsFormSubmit (evt) {
   evt.preventDefault();
   addCard()
-  formCards.reset();
   closePopup(popupCards);
 }
 
+function cleanError() {
+
+  document.querySelectorAll('.popup__span-error').forEach((span) => {
+    span.classList.remove('popup__span-error_type_active');
+    span.textContent = '';
+  });
+
+  document.querySelectorAll('.popup__input').forEach((input) => {
+    if (!input.value) {
+      saveButton.classList.add('popup__save-button_type_disabled');
+      saveButton.setAttribute('disabled', 'true');
+    } else {
+      saveButton.classList.remove('popup__save-button_type_disabled');
+      saveButton.removeAttribute('disabled');
+    }
+    input.classList.remove('popup__input_type_error');
+  });
+}
 
 editButton.addEventListener('click', function () {
   setProfilePopupDataInput();
   openPopup(popupProfile);
+  cleanError();
 })
 
 addButton.addEventListener('click', function () {
   openPopup(popupCards);
+  formCards.reset();
+  cleanError();
 })
 
 closeButtonProfile.addEventListener('click', function() {
@@ -138,9 +155,9 @@ closeButtonBig.addEventListener('click', function() {
   closePopup(popupBig);
 })
 
-formProfile.addEventListener('submit', formSubmitHandlerProfile);
+formProfile.addEventListener('submit', handleProfileFormSubmit);
 
-formCards.addEventListener('submit', formSubmitHandlerCards);
+formCards.addEventListener('submit', handleCardsFormSubmit);
 
 function formValidation() {
   const formList = Array.from(document.querySelectorAll('.popup__form'));
@@ -157,4 +174,3 @@ function formValidation() {
 }
 
 formValidation();
-
