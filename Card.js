@@ -1,24 +1,36 @@
-import { imagePopup, captionPopup } from './index.js'
-
+import { openPopup } from './index.js'
 export class Card {
-  constructor(name, url) {
-    this._name = name;
-    this._url = url;
+  constructor(data, templateSelector) {
+    this._data = data;
+    this._templateSelector = templateSelector;
   }
 
   _getTemplate() {
     const cardElement = document
-    .querySelector('#card-template').content.querySelector('.card').cloneNode(true);
+    .querySelector(this._templateSelector)
+    .content
+    .querySelector('.card')
+    .cloneNode(true);
     return cardElement;
+  }
+
+  _handleCardClick(evt) {
+    const _imagePopup = document.querySelector('.popup-view__img');
+    const _captionPopup = document.querySelector('.popup-view__caption');
+    const item = evt.target;
+    _imagePopup.src = item.src;
+    _imagePopup.dataset.name = item.dataset.name;
+    _captionPopup.textContent = item.dataset.name;
+    openPopup(popupBig);
   }
 
   generateCard() {
     this._element = this._getTemplate()
     this._setEventListeners();
 
-    this._element.querySelector('.card__image').src = this._url;
-    this._element.querySelector('.card__title').textContent = this._name;
-    this._element.querySelector('.card__image').dataset.name = this._name;
+    this._element.querySelector('.card__image').src = this._data.link;
+    this._element.querySelector('.card__title').textContent = this._data.name;
+    this._element.querySelector('.card__image').dataset.name = this._data.name;
     return this._element;
   }
 
@@ -31,12 +43,5 @@ export class Card {
   _handleCardLike = evt => {evt.target.classList.toggle('card__like-button_event')}
 
   _handleCardDelete = evt => {evt.target.closest('.card').remove()}
-
-  _handleCardClick() {
-    this._url = imagePopup.src;
-    this._name = imagePopup.alt;
-    this._name = captionPopup.textContent;
-    openPopup(popupBig);
-  }
 
 }
