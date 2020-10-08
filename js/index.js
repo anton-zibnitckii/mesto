@@ -17,6 +17,8 @@ const inputPlace = document.querySelector('#place-input');
 const inputLink = document.querySelector('#link-input');
 const closeButtonCards = document.querySelector('#closeButtonCards');
 const closeButtonBig = document.querySelector('#closeButtonBig');
+const saveButtonProfile = document.querySelector('#saveButtonProfile');
+const saveButtonCards = document.querySelector('#saveButtonCards');
 const containerPopup = document.querySelector('.popup__container');
 const saveButton = document.querySelector('.popup__save-button');
 const initialCards = [
@@ -118,7 +120,7 @@ function cleanError() {
     span.classList.remove('popup__span-error_type_active');
     span.textContent = '';
   });
-
+/*
   document.querySelectorAll('.popup__input').forEach((input) => {
     if (!input.value) {
       saveButton.classList.add('popup__save-button_type_disabled');
@@ -129,18 +131,22 @@ function cleanError() {
     }
     input.classList.remove('popup__input_type_error');
   });
+  */
 }
 
-editButton.addEventListener('click', function () {
+editButton.addEventListener('click', () => {
+  formCards.reset();
   setProfilePopupDataInput();
+  saveButtonProfile.classList.add('popup__save-button_type_disabled');
+  cleanError(formProfile);
   openPopup(popupProfile);
-  cleanError();
 })
 
-addButton.addEventListener('click', function () {
-  openPopup(popupCards);
+addButton.addEventListener('click', () => {
+  saveButtonCards.classList.add('popup__save-button_type_disabled');
   formCards.reset();
-  cleanError();
+  cleanError(formCards);
+  openPopup(popupCards);
 })
 
 closeButtonProfile.addEventListener('click', function() {
