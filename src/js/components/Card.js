@@ -1,7 +1,7 @@
-import { openPopup } from './index.js'
-export class Card {
-  constructor(data, templateSelector) {
+export default class Card {
+  constructor({data, handleCardClick}, templateSelector) {
     this._data = data;
+    this._handleCardClick = handleCardClick;
     this._templateSelector = templateSelector;
   }
 
@@ -14,15 +14,15 @@ export class Card {
     return cardElement;
   }
 
-  _handleCardClick(evt) {
-    const _imagePopup = document.querySelector('.popup-view__img');
-    const _captionPopup = document.querySelector('.popup-view__caption');
-    const item = evt.target;
-    _imagePopup.src = item.src;
-    _imagePopup.dataset.name = item.dataset.name;
-    _captionPopup.textContent = item.dataset.name;
-    openPopup(popupBig);
-  }
+  // _handleCardClick(evt) {
+  //   const _imagePopup = document.querySelector('.popup-view__img');
+  //   const _captionPopup = document.querySelector('.popup-view__caption');
+  //   const item = evt.target;
+  //   _imagePopup.src = item.src;
+  //   _imagePopup.dataset.name = item.dataset.name;
+  //   _captionPopup.textContent = item.dataset.name;
+  //   openPopup(popupBig);
+  // }
 
   generateCard() {
     this._element = this._getTemplate()
@@ -40,8 +40,12 @@ export class Card {
     this._element.querySelector('.card__popup-button').addEventListener('click', this._handleCardClick);
   }
 
-  _handleCardLike = evt => {evt.target.classList.toggle('card__like-button_event')}
+  _handleCardLike(evt) {
+    evt.target.classList.toggle('card__like-button_event')
+  };
 
-  _handleCardDelete = evt => {evt.target.closest('.card').remove()}
+  _handleCardDelete (evt) {
+    evt.target.closest('.card').remove()
+  };
 
 }

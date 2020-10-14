@@ -12,6 +12,8 @@
 * JS validation
 * JS class
 * JS import/export
+* NPM
+* Webpack
 
 ## Cсылка на проект
 * https://anton-zibnitckii.github.io/mesto/index.html
