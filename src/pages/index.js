@@ -99,7 +99,7 @@ function addCard () {
     cardValue.name = inputPlace.value;
   const card = new Card({data: cardValue,
     handleCardClick: () => {
-      popupWithImage.open(item);
+      popupWithImage.open(cardValue);
     },
   },
   '#card-template');
